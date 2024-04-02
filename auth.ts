@@ -32,14 +32,18 @@ export const {
         }
     },
     callbacks:{
-        /* async signIn({ user }){
+        async signIn({ user, account }){
+            //Allow OAuth without email verification
+            if(account?.provider !== 'credentials') return true;
+            
             const existingUser = user.id ? await getUserById(user.id): false;
 
+            //Prevent sign in without email verification
             if(!existingUser || !existingUser.emailVerified){
                 return false;
             }
             return true;
-        }, */
+        }, 
         async session({token, session}){
             if(token.sub && session.user){
                 session.user.id = token.sub;
