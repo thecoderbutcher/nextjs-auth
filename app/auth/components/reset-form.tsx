@@ -3,11 +3,11 @@
 import * as z from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CardWrapper } from "@/components/auth/card-wrapper";
+import { CardWrapper } from "@/app/auth/components/card-wrapper";
 import { ResetSchema } from '@/schemas';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { FormError } from '@/components/form-error';
+import { FormError } from '@/components/form/form-error';
 import { useState, useTransition } from 'react'; 
 import {
     Form,
@@ -17,9 +17,8 @@ import {
     FormLabel,
     FormMessage
 } from '@/components/ui/form';
-import { FormSuccess } from '../form-success';
-import { reset } from '@/actions/reset';
-import Link from 'next/link';
+import { FormSuccess } from '@/components/form/form-success';
+import { reset } from '@/app/auth/actions/reset';
 
 export const ResetForm = () => {
     const [error, setError] = useState<string | undefined>('');
@@ -46,6 +45,7 @@ export const ResetForm = () => {
             })
         });
     }
+
     return (
         <CardWrapper
             headerLabel="Forgot your password?"
@@ -69,6 +69,7 @@ export const ResetForm = () => {
                                             {...field}
                                             disabled={isPending}
                                             placeholder='example@emaill.com'
+                                            type='email'
                                         />
                                     </FormControl>
                                     <FormMessage/>

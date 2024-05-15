@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useState} from "react";
 import { useSearchParams } from "next/navigation";
-import { newVerification } from "@/actions/newVerification";
-import { FormError } from "@/components/form-error";
-import { FormSuccess } from "@/components/form-success";
-import { CardWrapper } from "@/components/auth/card-wrapper";
+import { newVerification } from "@/app/auth/actions/newVerification";
+import { FormError } from "@/components/form/form-error";
+import { FormSuccess } from "@/components/form/form-success";
+import { CardWrapper } from "@/app/auth/components/card-wrapper";
 import { PuffLoader } from 'react-spinners';
 
 export const NewVerificationForm = () => {
