@@ -61,7 +61,6 @@ export const {
             if(!existingUser) return token;
 
             token.role = existingUser.role;
-            console.log(token);
             return token;
         }
     },
