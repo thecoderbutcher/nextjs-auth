@@ -11,15 +11,15 @@ export const sendVerificationEmail = async (email: string, token: string) => {
             pass: SMTP_PASSWORD,
         },
     });
-    try {
+    /* try {
         const testResult = await transport.verify();
         console.log(testResult);
     } catch (error) {
         console.error(error)
-    }
+    } */
 
     try {
-        const sendResult = await transport.sendMail({
+        await transport.sendMail({
             from: SMTP_MAIL,
             to: email,
             subject: "Confirm your email",
@@ -41,15 +41,15 @@ export const sendPasswordReset = async (email: string, token: string) => {
             pass: SMTP_PASSWORD,
         },
     });
-    try {
+    /* try {
         const testResult = await transport.verify();
         console.log(testResult);
     } catch (error) {
         console.error(error)
-    }
+    } */
 
     try {
-        const sendResult = await transport.sendMail({
+        await transport.sendMail({
             from: SMTP_MAIL,
             to: email,
             subject: "Reset your password",
@@ -58,6 +58,4 @@ export const sendPasswordReset = async (email: string, token: string) => {
     } catch (error) {
         console.error(error)
     } 
-
 }
-
